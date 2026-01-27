@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CyberKanjousenPagesController {
 
     @GetMapping("/")
-    String index(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
+    String index(@RequestParam(name = "name", required = false, defaultValue = "<h1>World<h1/>") String name, Model model) {
         model.addAttribute("name", name);
-        return "greeting";
+        return "index";
     }
 }
