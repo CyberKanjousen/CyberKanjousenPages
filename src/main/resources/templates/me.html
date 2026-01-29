@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh_cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/stylesheets/main.css}">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script th:src="@{/scripts/main.js}"></script>
+    <!-- 引入字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap}" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--导航栏部分-->
+<div th:replace="commons/navbar_and_footer :: common_navbar"></div>
+<!--流动网页部分-->
+<main th:fragment="me-container" id="me-container"></main>
+<!--页脚部分-->
+<div th:replace="commons/navbar_and_footer :: common_footer"></div>
+</body>
+</html>

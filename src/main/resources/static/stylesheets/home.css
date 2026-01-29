@@ -1,0 +1,248 @@
+.home {
+    .header-block {
+        width: 100vw;
+        height: calc(0.5cm + 22px);
+    }
+}
+/* 主页标题部分 */
+.home-title, .home-content {
+    display: flex;
+    flex-direction: column;
+}
+.home-title-logo, .window {
+    text-align: center;
+    margin: 0;
+}
+.logo { /* 定义一下后面要用的 logo */
+    text-align: left;
+    margin: 0;
+}
+.home-title-info {
+    text-align: left;
+}
+/* 桌面端主页标题Logo和文字 */
+.home-title-info, .home-content-text {
+    margin: 0 20vw;
+}
+.home-title-info h2, .home-content h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+.home-title-info h1, .home-content h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+/* 由文本拼成的窗口（顺便定义了下文展示板中的 window-bottom-1 window-bottom-2 的内容） */
+h3.window-1::before {content: "\0000a0_____________________________________________________________________________________________________\0000a0\0000a0";}
+h3.window-2::before {content: "|_______________________________________________________________________________________________-_=_X_|:";}
+h3.window-ark::before {content: "|__Ark.exe______________________________________________________________________________________-_=_X_|:";}
+h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0______\0000a0\0000a0\0000a0_______\0000a0______\0000a0______\0000a0_\0000a0\0000a0\0000a0\0000a0_\0000a0____\0000a0__\0000a0\0000a0\0000a0\0000a0_\0000a0_\0000a0\0000a0_______\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0_\0000a0____________\0000a0__\0000a0\0000a0\0000a0\0000a0_\0000a0\0000a0\0000a0\0000a0|:";}
+h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0___\00005c\0000a0\00005c\0000a0/\0000a0/\0000a0__\0000a0\0000a0\00005c\0000a0\0000a0____|\0000a0\0000a0___\0000a0\00005c\0000a0|\0000a0\0000a0/\0000a0/\0000a0_\0000a0\0000a0|\0000a0\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0|/\0000a0____\0000a0\00005c|\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0____/\0000a0\0000a0____|\0000a0\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/\0000a0\0000a0\0000a0\0000a0\00005c\0000a0V\0000a0/\0000a0/__)\0000a0/\0000a0[___\0000a0|\0000a0|____/\0000a0|_/\0000a0/\0000a0/_|\0000a0|\0000a0|\0000a0\00005c\0000a0|\0000a0|\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|(____|\0000a0[___\0000a0|\0000a0|\0000a0\00005c\0000a0|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0\0000a0___\0000a0\0000a0\00005c\0000a0\0000a0___]|\0000a0\0000a0__\0000a0\00005c|\0000a0\0000a0_\0000a0(\0000a0\0000a0__\0000a0\0000a0|\0000a0|\00005c\0000a0\00005c|\0000a0|\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|____\0000a0\00005c\0000a0\0000a0___]|\0000a0|\00005c\0000a0\00005c|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c_____|\0000a0|\0000a0[___)\0000a0)\0000a0[____|\0000a0|\0000a0\0000a0\00005c\0000a0\00005c\0000a0|\0000a0\00005c\0000a0\00005c/\0000a0\0000a0|\0000a0|\0000a0|_\00005c___|\0000a0|\0000a0|____|\0000a0|____|\0000a0|____)\0000a0)[____|\0000a0|\0000a0\00005c\0000a0|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c______|_|_______/______|_|\0000a0\0000a0\0000a0\00005c_\00005c|\0000a0\0000a0\00005c_\00005c\0000a0\0000a0|_|_|\00005c______/\00005c______/______/\00005c_____/______|_|\0000a0\0000a0\00005c__|\0000a0\0000a0\0000a0|:";}
+h3.window-9::before {content: "|\0000a07\0000a0|\0000a0[INFO][CyberKanjousen]Ciallo~\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+h3.window-a::before {content: "|\0000a08\0000a0|\0000a0[INFO][CyberKanjousen]What\0000a0Are\0000a0You\0000a0Looking\0000a0for?\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+h3.window-b::before {content: "|_9_|_________________________________________________________________________________________________|:";}
+h3.window-c::before {content: "\0000a0```````````````````````````````````````````````````````````````````````````````````````````````````````";}
+h3.window-bottom-1::before {content: "|_____________________________________________________________________________________________________|:"}
+h3.window-bottom-2::before {content: "\0000a0```````````````````````````````````````````````````````````````````````````````````````````````````````"}
+
+/* 平板端主页标题Logo和文字 */
+@media screen and (max-width: 1023px) {
+    .home-title-info, .home-content-text {
+        margin: 0 15vw;
+    }
+
+    h3.window-1::before {content: "\0000a0_________________________________________________________\0000a0\0000a0";}
+    h3.window-2::before {content: "|___________________________________________________-_=_X_|:";}
+    h3.window-ark::before {content: "|__Ark.exe__________________________________________-_=_X_|:";}
+    h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0_______\0000a0\0000a0\0000a0___\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0____\00005c\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/Cyber\00005c\0000a0\00005c_|\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0Kanjou)sen\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c____\0000a0/\0000a0/\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c_____/_/\0000a0\0000a0|_|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-9::before {content: "|\0000a07\0000a0|\0000a0[INFO][CyberKanjousen]Ciallo~\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-a::before {content: "|\0000a08\0000a0|\0000a0[INFO][CyberKanjousen]What\0000a0Are\0000a0You\0000a0Looking\0000a0for?\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-b::before {content: "|_9_|_____________________________________________________|:";}
+    h3.window-c::before {content: "\0000a0```````````````````````````````````````````````````````````";}
+    h3.window-bottom-1::before {content: "|_________________________________________________________|:"}
+    h3.window-bottom-2::before {content: "\0000a0```````````````````````````````````````````````````````````"}
+}
+/* 移动端主页标题Logo和文字 */
+@media screen and (max-width: 767px) {
+    .home-title-info, .home-content-text {
+        margin: 0 10vw;
+    }
+    .home-title-info h2, .home-content h2 {
+        font-size: 1.5rem;
+        margin: 6px 0;
+    }
+    .home-title-info h1, .home-content h1 {
+        font-size: 2rem;
+        margin: 6px 0;
+    }
+
+    h3.window-1::before {content: "\0000a0___________________________________\0000a0\0000a0";}
+    h3.window-2::before {content: "|_____________________________-_=_X_|:";}
+    h3.window-ark::before {content: "|__Ark.exe____________________-_=_X_|:";}
+    h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0_______\0000a0\0000a0\0000a0___\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0____\00005c\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0Ciallo~\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/Cyber\00005c\0000a0\00005c_|\0000a0|\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0Kanjou)sen\0000a0|\0000a0What\0000a0Are\0000a0You\0000a0|:";}
+    h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c____\0000a0/\0000a0/\0000a0|\0000a0|\0000a0Looking\0000a0for?\0000a0|:";}
+    h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c_____/_/\0000a0\0000a0|_|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-9::before {content: "|_7_|_______________________________|:";}
+    h3.window-a::before {content: "\0000a0`````````````````````````````````````";}
+    h3.window-b::before {content: "";}
+    h3.window-c::before {content: "";}
+    h3.window-bottom-1::before {content: "|___________________________________|:"}
+    h3.window-bottom-2::before {content: "\0000a0`````````````````````````````````````"}
+}
+/* 狭窄移动端主页标题Logo */
+@media screen and (max-width: 374px) {
+    h3.window-1::before {content: "\0000a0_______________________\0000a0\0000a0";}
+    h3.window-2::before {content: "|_________________-_=_X_|:";}
+    h3.window-ark::before {content: "|__Ark.exe________-_=_X_|:";}
+    h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0_______\0000a0\0000a0\0000a0___\0000a0\0000a0|:";}
+    h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0____\00005c\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0\0000a0|:";}
+    h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/Cyber\00005c\0000a0\00005c_|\0000a0|\0000a0\0000a0|:";}
+    h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0Kanjou)sen\0000a0|\0000a0\0000a0|:";}
+    h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c____\0000a0/\0000a0/\0000a0|\0000a0|\0000a0\0000a0|:";}
+    h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c_____/_/\0000a0\0000a0|_|\0000a0\0000a0|:";}
+    h3.window-9::before {content: "|\0000a07\0000a0|Ciallo~\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0|:";}
+    h3.window-a::before {content: "|_8_|___________________|:";}
+    h3.window-b::before {content: "\0000a0`````````````````````````";}
+    h3.window-c::before {content: "";}
+    h3.window-bottom-1::before {content: "|_______________________|:"}
+    h3.window-bottom-2::before {content: "\0000a0`````````````````````````"}
+}
+
+/* 展示板样式 */
+.display-board {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    /* Firefox滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color) transparent;
+}
+
+/* Webkit浏览器滚动条样式 */
+.display-board::-webkit-scrollbar {
+    height: 8px;
+}
+
+.display-board::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.display-board::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 4px;
+}
+
+.display-board::-webkit-scrollbar-button {
+    display: none;
+}
+
+.display-board-inner {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+.display-board-part-1,
+.display-board-part-2,
+.display-board-part-3 {
+    width: 944px;
+    height: 400px;
+    flex-shrink: 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: sticky;
+    top: calc(0.5cm + 22px);
+    z-index: 998;
+}
+
+/* 第一个小块与home-content-text的h1对齐 */
+.display-board-inner {
+    padding: 0 calc((100vw - 950px) / 2);
+}
+
+/* 平板端 */
+@media screen and (max-width: 1023px) {
+    .display-board-part-1,
+    .display-board-part-2,
+    .display-board-part-3 {
+        width: 545px;
+    }
+    .display-board-inner {
+        padding: 0 calc((100vw - 550px) / 2);
+    }
+}
+
+/* 移动端 */
+@media screen and (max-width: 767px) {
+    .display-board-part-1,
+    .display-board-part-2,
+    .display-board-part-3 {
+        width: 345px;
+    }
+    .display-board-inner {
+        padding: 0 calc((100vw - 350px) / 2);
+    }
+}
+
+/* 狭窄移动端 */
+@media screen and (max-width: 374px) {
+    .display-board-part-1,
+    .display-board-part-2,
+    .display-board-part-3 {
+        width: 236px;
+    }
+    .display-board-inner {
+        padding: 0 calc((100vw - 240px) / 2);
+    }
+}
+
+/* 展示板一个模块内部 */
+.window-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+h3.window-border-left::before {
+    content: "|\0000a0";
+}
+.window-inner-content {
+    width: calc(100% - 37px);
+    text-align: left;
+}
+h3.ark-exe-logo-1::before {content: "";}
+.ellipsis {
+    width: 100%;
+    display: -webkit-box;
+}
+@media screen and (max-width: 767px) {
+    .ellipsis {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5; /* 这里设置显示的行数 */
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 374px) {
+    .ellipsis {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; /* 这里设置显示的行数 */
+        overflow: hidden;
+    }
+}
+h3.window-border-right::before {
+    content: "|:";
+}
