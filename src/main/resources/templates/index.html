@@ -12,15 +12,17 @@
     <link th:href="@{https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap}" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body hx-boost="true">
+<!--加载进度条部分-->
+<div th:replace="~{commons/navbar_and_footer :: common_progress}"></div>
 <!--导航栏部分-->
-<div th:replace="commons/navbar_and_footer :: common_navbar"></div>
+<div th:replace="~{commons/navbar_and_footer :: common_navbar}"></div>
+<div class="header-block"></div>
 <!--流动网页部分-->
 <main th:fragment="home-container" id="home-container">
     <!--主页-->
     <title>サイバー環状線的房间</title>
     <link rel="stylesheet" type="text/css" th:href="@{/stylesheets/home.css}">
     <div class="home">
-        <div class="header-block"></div>
         <div class="home-title">
             <div class="home-title-logo">
                 <h3 class="window window-1"></h3>
@@ -36,7 +38,7 @@
                 <h3 class="window window-b"></h3>
                 <h3 class="window window-c"></h3>
             </div>
-            <div class="home-title-info">
+            <div class="home-title-info content-text">
                 <h2>欢迎来到</h2>
                 <h1>サイバー環状線的房间</h1>
                 <h3>姑且算是开发者？姑且算是写手？dwb'</h3>
@@ -44,7 +46,7 @@
             <div class="divider"><h3 class="divider"></h3></div>
         </div>
         <div class="home-content">
-            <div class="home-content-text"><h2>这里都有什么？</h2></div>
+            <div class="content-text"><h2>这里都有什么？</h2></div>
             <!--展示板（展示板内容在 div.window-inner-content 内）-->
             <div class="display-board">
                 <div class="display-board-inner">
@@ -69,17 +71,20 @@
                                 <h3 class="window window-border-left"></h3>
                                 <h3 class="window window-border-left"></h3>
                                 <h3 class="window window-border-left"></h3>
+                                <h3 class="window window-border-left"></h3>
                             </div>
                             <div class="window-inner-content">
                                 <h3 class="logo ark-exe-logo-1"></h3>
                                 <h3 class="logo ark-exe-logo-2"></h3>
                                 <h3 class="logo ark-exe-logo-3"></h3>
-                                <h2>- 扁舟</h2>
+                                <h3 class="logo ark-exe-logo-4"></h3>
+                                <h2># 扁舟</h2>
                                 <p>“扁舟”是我虚构的一个科幻世界观的名字，时间跨度有四百多年，在空间维度上涵盖了4个星系。这个世界观我从高二的时候就开始构思了，目前已经大致成型，但仍有诸多细节待我补充。</p>
                                 <p class="ellipsis">公元2067年，共产主义组织“世界联合”发动起义，起义在短短几年内席卷全球，后称“更世战争”。世界联合很快取得了战争优势，并对战败的旧统治阶级进行了残酷清算。更世战争后期，各国政府已无力镇压世界联合，于是决定进行建造飞船逃离地球的“扁舟计划”。2077年，最后一艘扁舟舰船离开地球；世界联合也在同年成立了世界联合政府，彻底统治了整个地球世界。人类文明从此分裂为长期彼此敌对的两支势力。</p>
                                 <a href="" class="text-button">> 了解更多 <</a>
                             </div>
                             <div class="window-border-right">
+                                <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
@@ -103,7 +108,7 @@
                     </div>
                     <div class="display-board-part-2">
                         <h3 class="window window-1"></h3>
-                        <h3 class="window window-2"></h3>
+                        <h3 class="window window-articles"></h3>
                         <div class="window-content">
                             <div class="window-border-left">
                                 <h3 class="window window-border-left"></h3>
@@ -122,9 +127,19 @@
                                 <h3 class="window window-border-left"></h3>
                                 <h3 class="window window-border-left"></h3>
                                 <h3 class="window window-border-left"></h3>
+                                <h3 class="window window-border-left"></h3>
                             </div>
-                            <div class="window-inner-content"></div>
+                            <div class="window-inner-content">
+                                <h3 class="logo articles-exe-logo-1"></h3>
+                                <h3 class="logo articles-exe-logo-2"></h3>
+                                <h3 class="logo articles-exe-logo-3"></h3>
+                                <h3 class="logo articles-exe-logo-4"></h3>
+                                <h2># 随笔</h2>
+                                <p>我平日里随便写的一些东西都会记录在此处。包括但不限于：我的<s>发病记录</s>日记、零碎的不成系统的学习笔记，偶尔一些奇思妙想也会记录在此处（其他还会有什么我还没想出来，暂时就这些了）。</p>
+                                <a href="" class="text-button">> 了解更多 <</a>
+                            </div>
                             <div class="window-border-right">
+                                <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
@@ -167,9 +182,15 @@
                                 <h3 class="window window-border-left"></h3>
                                 <h3 class="window window-border-left"></h3>
                                 <h3 class="window window-border-left"></h3>
+                                <h3 class="window window-border-left"></h3>
                             </div>
-                            <div class="window-inner-content"></div>
+                            <div class="window-inner-content">
+                                <!--TODO-->
+                                <h3 style="margin: 0">[INFO][CyberKanjousen]这里暂时留空。</h3>
+                                <h3 style="margin: 0">[INFO][CyberKanjousen]这里本来对应的是导航栏上的“其他”部分，但目前除了前面两个之外，再无“其他”。也许以后会有的吧……</h3>
+                            </div>
                             <div class="window-border-right">
+                                <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
                                 <h3 class="window window-border-right"></h3>
@@ -193,8 +214,8 @@
                     </div>
                 </div>
             </div>
-            <div class="home-content-text"><h2>我是谁？</h2></div>
-            <div class="home-content-text">
+            <div class="content-text"><h2>我是谁？</h2></div>
+            <div class="content-text">
                 <p>首先，我是一个人类。然后，目前是学生，就读于<s>威海工业大专</s>哈尔滨工业大学威海校区。姑且算是个开发者，虽然实际上没开发出什么东西，需要学习的还有很多。姑且算是个写手，虽然目前没有发布过什么作品。总之，欢迎大家来到我的小房间做客！</p>
                 <p>我的其他信息，包括联系方式，可以在<a href="">这里</a>看到！</p>
             </div>
@@ -202,6 +223,7 @@
     </div>
 </main>
 <!--页脚部分-->
-<div th:replace="commons/navbar_and_footer :: common_footer"></div>
+<div class="header-block"></div>
+<div th:replace="~{commons/navbar_and_footer :: common_footer}"></div>
 </body>
 </html>

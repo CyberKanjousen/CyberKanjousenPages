@@ -26,12 +26,14 @@ html {
 }
 
 body {
+    position: relative;
     background: var(--bg-color);
     color: var(--text-color);
     text-emphasis: var(--bg-color);
     text-emphasis-color: var(--text-color);
     font-family: 'JetBrains Mono', sans-serif;
     margin: 0;
+    min-height: 100vh;
 }
 
 a:link {
@@ -76,6 +78,49 @@ h2 {
 h3, h4, h5, h6, p, blockquote {
     font-size: 1rem;
 }
+
+/* 进度条 */
+.progress-bar {
+    height: 3px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    width: 0%;
+    background-color: var(--text-color);
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    display: block;
+}
+
+.progress-bar-inner.loading {
+    animation: progress-loading 2s ease-in-out forwards;
+}
+
+.progress-bar-inner.complete {
+    width: 100% !important;
+    opacity: 0;
+}
+
+@keyframes progress-loading {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 90%;
+    }
+}
+
 
 /* 桌面端导航栏 */
 .nav {
@@ -220,7 +265,7 @@ div.title {
     margin: 10px 0;
 }
 /* 平板端导航栏 */
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 850px) {
     .navbar nav {
         width: 35%;
         margin-right: 5%;
@@ -284,9 +329,30 @@ div.title {
     }
 }
 
-.between-navbar-and-content {
+div.between-navbar-and-content {
     height: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: var(--text-color);
+}
+
+/* 连接错误报错 */
+h3.between-navbar-and-content {
+    color: var(--bg-color);
+    font-size: 0;
+    margin: 0 20vw;
+    text-align: left;
+}
+@media screen and (max-width: 1023px) {
+    h3.between-navbar-and-content {
+        margin: 0 15vw;
+    }
+}
+@media screen and (max-width: 767px) {
+    h3.between-navbar-and-content {
+        margin: 0 6vw;
+    }
 }
 
 main {
@@ -318,7 +384,193 @@ h3.divider::before {
 }
 
 /* 页脚 */
+.footer {
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+}
 .footer-content {
     margin: 10px 0;
     text-align: center;
+}
+
+/* 添加外部链接图标 */
+a[href^="http"]::after {
+    content: ""; /* 必须有 content 属性 */
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+
+    /* 使用图标地址，可以是 SVG 或 PNG */
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Eexternal%20link%3C%2Ftitle%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M6%201h5v5L8.86%203.85%204.7%208%204%207.3l4.15-4.16zM2%203h2v1H2v6h6V8h1v2a1%201%200%200%201-1%201H2a1%201%200%200%201-1-1V4a1%201%200%200%201%201-1%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    /* 确保图标与文字对齐 */
+    vertical-align: middle;
+}
+
+@media (prefers-color-scheme: dark) {
+    a[href^="http"]::after {
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Eexternal%20link%3C%2Ftitle%3E%3Cpath%20fill%3D%22%233f9aff%22%20d%3D%22M6%201h5v5L8.86%203.85%204.7%208%204%207.3l4.15-4.16zM2%203h2v1H2v6h6V8h1v2a1%201%200%200%201-1%201H2a1%201%200%200%201-1-1V4a1%201%200%200%201%201-1%22%2F%3E%3C%2Fsvg%3E");
+    }
+}
+
+/* 由文本拼成的窗口 */
+.window {
+    text-align: center;
+    margin: 0;
+}
+.window-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.window-inner-content {
+    width: calc(100% - 46px);
+    display: flex;
+    flex-direction: column;
+}
+/* 顶部 */
+h3.window-1::before {content: "\0000a0_____________________________________________________________________________________________________\0000a0\0000a0";}
+h3.window-2::before {content: "|_______________________________________________________________________________________________-_=_X_|:";}
+h3.window-ark::before {content: "|__Ark.exe______________________________________________________________________________________-_=_X_|:";} /* 扁舟主页展示块窗口标题 */
+h3.window-articles::before {content: "|__articles.exe_________________________________________________________________________________-_=_X_|:";} /* 随笔主页展示块窗口标题 */
+h3.window-picture-1::before {content: "\0000a0___________________________________\0000a0\0000a0"} /* 个人资料图片窗口 */
+h3.window-picture-2::before {content: "|__Profile_Picture____________-_=_X_|:"} /* 个人资料图片窗口标题 */
+/* 中部 */
+h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0______\0000a0\0000a0\0000a0_______________________\0000a0\0000a0\0000a0\0000a0_________\0000a0\0000a0\0000a0\0000a0___\0000a0\0000a0_______\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0_\0000a0_______________\0000a0\0000a0\0000a0\0000a0_\0000a0\0000a0\0000a0\0000a0|:";}
+h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0___\00005c\0000a0\00005c\0000a0/\0000a0/\0000a0__\0000a0\0000a0\00005c\0000a0\0000a0____|\0000a0\0000a0___\0000a0\00005c\0000a0|\0000a0\0000a0/\0000a0/\0000a0_\0000a0\0000a0|\0000a0\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0|/\0000a0____\0000a0\00005c|\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0____/\0000a0\0000a0____|\0000a0\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/\0000a0\0000a0\0000a0\0000a0\00005c\0000a0V\0000a0/\0000a0/__)\0000a0/\0000a0[___\0000a0|\0000a0|____/\0000a0|_/\0000a0/\0000a0/_|\0000a0|\0000a0|\0000a0\00005c\0000a0|\0000a0|\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|(____|\0000a0[___\0000a0|\0000a0|\0000a0\00005c\0000a0|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0\0000a0___\0000a0\0000a0\00005c\0000a0\0000a0___]|\0000a0\0000a0__\0000a0\00005c|\0000a0\0000a0_\0000a0(\0000a0\0000a0__\0000a0\0000a0|\0000a0|\00005c\0000a0\00005c|\0000a0|\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0|\0000a0|____\0000a0\00005c\0000a0\0000a0___]|\0000a0|\00005c\0000a0\00005c|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c_____|\0000a0|\0000a0[___)\0000a0)\0000a0[____|\0000a0|\0000a0\0000a0\00005c\0000a0\00005c\0000a0|\0000a0\00005c\0000a0\00005c/\0000a0\0000a0|\0000a0|\0000a0|_\00005c___|\0000a0|\0000a0|____|\0000a0|____|\0000a0|____)\0000a0)[____|\0000a0|\0000a0\00005c\0000a0|\0000a0|\0000a0\0000a0\0000a0|:";}
+h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c______|_|_______/______|_|\0000a0\0000a0\0000a0\00005c_\00005c|\0000a0\0000a0\00005c_\00005c\0000a0\0000a0|_|_|\00005c______/\00005c______/______/\00005c_____/______|_|\0000a0\0000a0\00005c__|\0000a0\0000a0\0000a0|:";}
+h3.window-9::before {content: "|\0000a07\0000a0|\0000a0[INFO][CyberKanjousen]Ciallo~\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+h3.window-a::before {content: "|\0000a08\0000a0|\0000a0[INFO][CyberKanjousen]What\0000a0Are\0000a0You\0000a0Looking\0000a0for?\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+.home {
+    h3.ark-exe-logo-1::before {content: "\0000a0\0000a0\0000a0_________\0000a0\0000a0__\0000a0";}
+    h3.ark-exe-logo-2::before {content: "\0000a0\0000a0/\0000a0\0000a0|\0000a0__\0000a0\00005c\0000a0|/\0000a0/";}
+    h3.ark-exe-logo-3::before {content: "\0000a0/\0000a0^\0000a0|\0000a0|\0000a0_/\0000a0\0000a0\0000a0(";}
+    h3.ark-exe-logo-4::before {content: "/_/|_|_|\00005c_\00005c_|\00005c_\00005c";}
+    h3.articles-exe-logo-1::before {content: "\0000a0\0000a0\0000a0_______________________\0000a0\0000a0\0000a0\0000a0____\0000a0____";}
+    h3.articles-exe-logo-2::before {content: "\0000a0\0000a0/\0000a0\0000a0|\0000a0__\0000a0\00005c__\0000a0__|_\0000a0_/\0000a0__|\0000a0|\0000a0\0000a0|\0000a0___/\0000a0___|";}
+    h3.articles-exe-logo-3::before {content: "\0000a0/\0000a0^\0000a0|\0000a0|\0000a0_/\0000a0|\0000a0|\0000a0\0000a0|\0000a0|\0000a0(__|\0000a0|__|\0000a0___\00005c___\0000a0\00005c";}
+    h3.articles-exe-logo-4::before {content: "/_/|_|_|\00005c_\00005c\0000a0|_|\0000a0|___\00005c___|____|____|____/";}
+}
+h3.window-border-left::before,
+h3.window-border-left-picture::before{content: "|\0000a0";}
+h3.window-border-right::before,
+h3.window-border-right-picture::before {content: "\0000a0|:";}
+/* 底部 */
+h3.window-b::before {content: "|_9_|_________________________________________________________________________________________________|:";}
+h3.window-c::before {content: "\0000a0```````````````````````````````````````````````````````````````````````````````````````````````````````";}
+h3.window-bottom-1::before {content: "|_____________________________________________________________________________________________________|:"}
+h3.window-bottom-2::before {content: "\0000a0```````````````````````````````````````````````````````````````````````````````````````````````````````"}
+h3.window-picture-bottom-1::before {content: "|___________________________________|:"} /* 个人资料图片窗口底部 */
+h3.window-picture-bottom-2::before {content: "\0000a0`````````````````````````````````````"} /* 个人资料图片窗口底部阴影 */
+
+/* 平板端 */
+@media screen and (max-width: 1023px) {
+    h3.window-1::before {content: "\0000a0_________________________________________________________\0000a0\0000a0";}
+    h3.window-2::before {content: "|___________________________________________________-_=_X_|:";}
+    h3.window-ark::before {content: "|__Ark.exe__________________________________________-_=_X_|:";}
+    h3.window-articles::before {content: "|__articles.exe_____________________________________-_=_X_|:";}
+
+    h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0_______\0000a0\0000a0\0000a0___\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0____\00005c\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/Cyber\00005c\0000a0\00005c_|\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0Kanjou)sen\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c____\0000a0/\0000a0/\0000a0|\0000a0|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c_____/_/\0000a0\0000a0|_|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-9::before {content: "|\0000a07\0000a0|\0000a0[INFO][CyberKanjousen]Ciallo~\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-a::before {content: "|\0000a08\0000a0|\0000a0[INFO][CyberKanjousen]What\0000a0Are\0000a0You\0000a0Looking\0000a0for?\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+
+    h3.window-b::before {content: "|_9_|_____________________________________________________|:";}
+    h3.window-c::before {content: "\0000a0```````````````````````````````````````````````````````````";}
+    h3.window-bottom-1::before {content: "|_________________________________________________________|:"}
+    h3.window-bottom-2::before {content: "\0000a0```````````````````````````````````````````````````````````"}
+
+    .home {
+        h3.ark-exe-logo-1::before,
+        h3.ark-exe-logo-2::before,
+        h3.ark-exe-logo-3::before,
+        h3.ark-exe-logo-4::before,
+        h3.articles-exe-logo-1::before,
+        h3.articles-exe-logo-2::before,
+        h3.articles-exe-logo-3::before,
+        h3.articles-exe-logo-4::before {content: "";}
+    }
+}
+
+/* 移动端 */
+@media screen and (max-width: 767px) {
+    h3.window-1::before {content: "\0000a0___________________________________\0000a0\0000a0";}
+    h3.window-2::before {content: "|_____________________________-_=_X_|:";}
+    h3.window-ark::before {content: "|__Ark.exe____________________-_=_X_|:";}
+    h3.window-articles::before {content: "|__articles.exe_______________-_=_X_|:";}
+
+    h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0_______\0000a0\0000a0\0000a0___\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0____\00005c\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0Ciallo~\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/Cyber\00005c\0000a0\00005c_|\0000a0|\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0\0000a0\0000a0|:";}
+    h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0Kanjou)sen\0000a0|\0000a0What\0000a0Are\0000a0You\0000a0|:";}
+    h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c____\0000a0/\0000a0/\0000a0|\0000a0|\0000a0Looking\0000a0for?\0000a0|:";}
+    h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c_____/_/\0000a0\0000a0|_|\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0|:";}
+
+    h3.window-9::before {content: "|_7_|_______________________________|:";}
+    h3.window-a::before {content: "\0000a0`````````````````````````````````````";}
+    h3.window-b::before,
+    h3.window-c::before {content: "";}
+    h3.window-bottom-1::before {content: "|___________________________________|:"}
+    h3.window-bottom-2::before {content: "\0000a0`````````````````````````````````````"}
+}
+
+/* 狭窄移动端 */
+@media screen and (max-width: 374px) {
+    h3.window-1::before {content: "\0000a0_______________________\0000a0\0000a0";}
+    h3.window-2::before {content: "|_________________-_=_X_|:";}
+    h3.window-ark::before {content: "|__Ark.exe________-_=_X_|:";}
+    h3.window-articles::before {content: "|__articles.exe___-_=_X_|:";}
+    h3.window-picture-1::before {content: "\0000a0_______________________\0000a0\0000a0";}
+    h3.window-picture-2::before {content: "|__Picture________-_=_X_|:";}
+
+    h3.window-3::before {content: "|\0000a01\0000a0|\0000a0\0000a0\0000a0\0000a0_______\0000a0\0000a0\0000a0___\0000a0\0000a0|:";}
+    h3.window-4::before {content: "|\0000a02\0000a0|\0000a0\0000a0\0000a0/\0000a0____\00005c\0000a0\00005c\0000a0\0000a0|\0000a0|\0000a0\0000a0|:";}
+    h3.window-5::before {content: "|\0000a03\0000a0|\0000a0\0000a0/\0000a0/Cyber\00005c\0000a0\00005c_|\0000a0|\0000a0\0000a0|:";}
+    h3.window-6::before {content: "|\0000a04\0000a0|\0000a0(\0000a0(\0000a0Kanjou)sen\0000a0|\0000a0\0000a0|:";}
+    h3.window-7::before {content: "|\0000a05\0000a0|\0000a0\0000a0\00005c\0000a0\00005c____\0000a0/\0000a0/\0000a0|\0000a0|\0000a0\0000a0|:";}
+    h3.window-8::before {content: "|\0000a06\0000a0|\0000a0\0000a0\0000a0\00005c_____/_/\0000a0\0000a0|_|\0000a0\0000a0|:";}
+    h3.window-9::before {content: "|\0000a07\0000a0|Ciallo~\0000a0(<·ω<\0000a0)^✶\0000a0\0000a0|:";}
+
+    h3.window-a::before {content: "|_8_|___________________|:";}
+    h3.window-b::before {content: "\0000a0`````````````````````````";}
+    h3.window-c::before,
+    h3.window-border-left-picture::before,
+    h3.window-border-right-picture::before {content: "";}
+    h3.window-bottom-1::before {content: "|_______________________|:"}
+    h3.window-bottom-2::before {content: "\0000a0`````````````````````````"}
+    h3.window-picture-bottom-1::before {content: "|_______________________|:"} /* 个人资料图片窗口底部 */
+    h3.window-picture-bottom-2::before {content: "\0000a0`````````````````````````"} /* 个人资料图片窗口底部阴影 */
+
+}
+
+/* 正文和顶端的空白 */
+.header-block {
+    width: 100vw;
+    height: calc(0.5cm + 22px);
+}
+
+/* 正文左右间距 */
+.content-text {
+    margin: 0 20vw;
+}
+@media screen and (max-width: 1023px) {
+    .content-text {
+        margin: 0 15vw;
+    }
+}
+@media screen and (max-width: 767px) {
+    .content-text {
+        margin: 0 6vw;
+    }
 }

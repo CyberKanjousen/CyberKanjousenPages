@@ -73,7 +73,9 @@ src/
 │   │   ├── templates/                            # Thymeleaf模板
 │   │   │   └── commons/                          # 公共部分
 │   │   │   │   └── navbar_and_footer.html
+│   │   │   └── projects/                          # 项目
 │   │   │   └── index.html                        # 主页
+│   │   │   └── me.html                        # 关于我
 │   │   └── application.properties                # 应用配置
 │   └── templates/                                # 主要模板目录
 └── test/

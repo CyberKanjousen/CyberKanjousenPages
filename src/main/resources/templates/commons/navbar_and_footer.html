@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
+<!--加载进度条部分-->
+<div class="progress-bar" th:fragment="common_progress">
+    <div class="progress-bar-inner"></div>
+</div>
 <!--导航栏部分-->
 <div class="nav" th:fragment="common_navbar">
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -12,9 +16,10 @@
         <a><h3>|三</h3></a>
     </label>
     <div class="navbar">
-        <div class="title"><h3>サイバー環状線的房间</h3></div>
+        <div class="title"><!--/*@thymesVar id="title" type="java.lang.String"*/-->
+        <h3 th:text="${title}"></h3></div>
         <nav>
-            <a href=""><h3 class="navbar-button-1"></h3></a>
+            <a href="/"><h3 class="navbar-button-1"></h3></a>
             <div class="navbar-button-2">
                 <input type="checkbox" id="navbar-button-2-toggle" class="navbar-button-2-toggle">
                 <label for="navbar-button-2-toggle" class="navbar-button-2-manu">
@@ -26,18 +31,20 @@
                 <a href="" class="navbar-button-2-manu"><h3 class="navbar-button-2-button-2"></h3></a>
                 <a href="" class="navbar-button-2-manu"><h3 class="navbar-button-2-button-3"></h3></a>
             </div>
-            <a href=""><h3 class="navbar-button-3"></h3></a>
+            <a href="/me"><h3 class="navbar-button-3"></h3></a>
         </nav>
     </div>
     <!--导航栏与流动网页之间的部分-->
-    <div class="between-navbar-and-content"></div>
-    <div class="content"></div>
+    <div class="between-navbar-and-content">
+        <h3 class="between-navbar-and-content">[ERROR]连接出错，请重试</h3>
+    </div>
 </div>
+<div class="header-block"></div>
 <!--页脚部分-->
 <div class="footer" th:fragment="common_footer">
     <!--流动网页页脚之间的部分-->
     <div class="between-navbar-and-content"></div>
-    <p class="footer-content">© 2026 サイバー環状線 <a href="">kanjousen.com</a> | <a href="https://x.com/CyberKanjousen">𝕏</a> | <a href="https://space.bilibili.com/604781968">Bilibili</a> | <a href="https://github.com/CyberKanjousen">Github</a></p>
+    <p class="footer-content">© 2026 サイバー環状線 <a href="/">kanjousen.com</a> | <a href="https://x.com/CyberKanjousen" target="_blank" rel="noopener noreferrer">𝕏</a> | <a href="https://space.bilibili.com/604781968" target="_blank" rel="noopener noreferrer">Bilibili</a> | <a href="https://github.com/CyberKanjousen" target="_blank" rel="noopener noreferrer">Github</a></p>
 </div>
 </body>
 </html>

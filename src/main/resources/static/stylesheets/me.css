@@ -1,0 +1,48 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    margin: 0 12vw;
+}
+.picture {
+    width: 345px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+div.profile-picture {
+    display: flex;
+    justify-content: center;
+}
+img.profile-picture {
+    height: 300px;
+    width: 300px;
+}
+.bio {
+    margin-left: 10px;
+    width: calc(100% - 355px);
+}
+@media screen and (max-width: 1023px) {
+    .profile {
+        margin: 0 6vw;
+    }
+}
+@media screen and (max-width: 767px){
+    .profile {
+        flex-direction: column;
+    }
+    .bio {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 374px) {
+    .picture {
+        width: 236px;
+        height: 300px;
+    }
+    img.profile-picture {
+        height: 190px;
+        width: 190px;
+    }
+}
+
